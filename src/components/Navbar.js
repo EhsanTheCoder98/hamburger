@@ -6,10 +6,12 @@ const List = styled.ul`
   display: flex;
   transition: all 0.3s linear;
   justify-content: right;
+  z-index:10;
   li {
     padding: 20px;
   }
   @media (max-width: 600px) {
+    transform:${props => props.open ? "translateX(0)" :"translateX(100%)" };
     flex-direction: column;
     background-color: gray;
     position:fixed;
@@ -20,9 +22,9 @@ const List = styled.ul`
   }
 `;
 
-const Navbar = () => {
+const Navbar = ({open}) => {
   return (
-    <List>
+    <List   open={open}>
       <li>Home</li>
       <li>Github</li>
       <li>buy me a coffee</li>
